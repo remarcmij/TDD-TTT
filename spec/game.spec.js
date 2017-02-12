@@ -59,11 +59,6 @@ describe('Tic Tac Toe with two players', () => {
         expect(res).toBe('Jim');
     });
 
-    it('should return the name of the second player for a corresponding winning config', () => {
-        var res = game.resolveWinner([0, 0, 0, 2, 2, 2, 0, 0, 0]);
-        expect(res).toBe('Jim');
-    });
-
     it('should return null if there is no winning config', () => {
         var res = game.resolveWinner([1, 0, 0, 0, 2, 2, 0, 0, 0]);
         expect(res).toBe(null);
