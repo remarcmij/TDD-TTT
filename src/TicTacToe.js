@@ -22,30 +22,20 @@ function TicTacToe() {
     }
 
     this.resolveWinner = function(boardConfig) {
-        // Convert the boardConfig array into a string.
-        // A string is in this case more convenient because
-        // it is a single value and can easily be matched
-        // against regular expressions.
-        // e.g. [1, 1, 1, 0, 0, 0, 0, 0, 0] becomes
-        // '111000000'
         let boardAsString = boardConfig.join('')
-
         let nameOfWinner = null
+        let playerIndex = 0
 
-        let winningPatternsFound = 0
-
-        winningPatternsPerPlayer.forEach((winningPatterns, playerIndex) => {
-            winningPatternsFound = winningPatterns.reduce((matchCount, winningPattern) => {
+        for (let winningPatterns of winningPatternsPerPlayer) {
+            for (let winningPattern of winningPatterns) {
                 if (boardAsString.match(winningPattern)) {
+                    if (nameOfWinner) {
+                        throw new Error('More than one winning pattern found')
+                    }
                     nameOfWinner = this.players[playerIndex]
-                    matchCount += 1
                 }
-                return matchCount
-            }, winningPatternsFound)
-        })
-
-        if (winningPatternsFound > 1) {
-            throw new Error('More than one winning pattern found')
+            }
+            playerIndex += 1
         }
 
         return nameOfWinner
