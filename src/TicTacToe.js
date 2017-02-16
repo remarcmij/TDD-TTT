@@ -1,4 +1,4 @@
-// The winning positions are defined as regular expressions (8 winning pattern per player)
+// The winning patterns are defined as regular expressions (8 winning patterns per player)
 const winningPatternsPerPlayer = [
     [/^111......$/, /^...111...$/, /^......111$/, /^1..1..1..$/, /^.1..1..1.$/, /^..1..1..1$/, /^1...1...1$/, /^..1.1.1..$/],
     [/^222......$/, /^...222...$/, /^......222$/, /^2..2..2..$/, /^.2..2..2.$/, /^..2..2..2$/, /^2...2...2$/, /^..2.2.2..$/]
